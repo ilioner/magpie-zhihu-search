@@ -69,7 +69,10 @@ magpie 自带的「联网搜索」也可以选择用知乎站内搜索。
 ## 安装与登录
 
 ```bash
-# 添加插件（本地目录、npm 包名或 git 仓库都可以）
+# 从 GitHub 安装（推荐）
+magpie plugin add https://github.com/ilioner/magpie-zhihu-search.git
+
+# 本地开发时直接装目录
 magpie plugin add ./tools-zhihu
 
 # 保存 Access Secret（在 https://developer.zhihu.com/profile 生成）
@@ -162,6 +165,16 @@ tools-zhihu  on
 | `quota` | 不消耗额度 |
 
 先用 `zhihu_quota` 看一眼剩余量，再决定要不要批量搜。
+
+## 发布与收录
+
+1. **GitHub 非官方列表**：给仓库加上 `magpie-plugin` 标签（GitHub 仓库页 → About → Topics），
+   magpie 约 10 分钟内就会把它显示在「插件 → 发现 → 非官方插件 · GitHub」，
+   按 Star 排序并标注未经审核。仓库根目录必须有 `package.json`，插件加载的文件必须提交进仓库。
+2. **官方社区列表**：发布到 npm 后，往
+   [magpie-community/plugins](https://github.com/magpie-community/plugins) 的 `registry.json`
+   提 PR 加一条记录，magpie 每隔几小时拉取一次。
+3. **自建列表**：`MAGPIE_PLUGIN_MARKET=<url>` 可以让 magpie 改用另一份列表，方便本地验证条目。
 
 ## 开发
 
