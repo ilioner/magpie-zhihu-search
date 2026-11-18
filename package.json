@@ -23,6 +23,14 @@
     "search"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilioner/magpie-zhihu-search.git"
+  },
+  "homepage": "https://github.com/ilioner/magpie-zhihu-search#readme",
+  "bugs": {
+    "url": "https://github.com/ilioner/magpie-zhihu-search/issues"
+  },
   "engines": {
     "node": ">=20"
   },
