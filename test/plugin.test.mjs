@@ -102,7 +102,7 @@ async function mock() {
   };
 }
 
-const tempDir = () => mkdtemp(join(tmpdir(), "tools-zhihu-"));
+const tempDir = () => mkdtemp(join(tmpdir(), "zhihu-agent-search-"));
 
 async function plugin(server, options = {}) {
   const dir = options.directory ?? (await tempDir());
@@ -152,7 +152,7 @@ test("search：带上鉴权头、时间戳与 SortBy，并把结果整理成 cam
     assert.equal(call.params.Count, "5");
     assert.equal(call.params.SortBy, "VoteUpCount:desc:(10,100)");
     assert.equal(call.headers.authorization, "Bearer test-secret");
-    assert.match(call.headers["user-agent"], /^tools-zhihu/);
+    assert.match(call.headers["user-agent"], /^zhihu-agent-search/);
     const skew = Math.abs(Number(call.headers["x-request-timestamp"]) - Math.floor(Date.now() / 1000));
     assert.ok(skew < 60, "时间戳应在 60 秒以内");
 

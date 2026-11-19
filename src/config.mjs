@@ -5,7 +5,7 @@ export const PROVIDER = "zhihu";
 // 知乎数据开放平台。插件只使用 /api/v1 下的 REST 接口。
 export const API_BASE = "https://developer.zhihu.com";
 // 标识发往知乎的流量。
-export const USER_AGENT = "tools-zhihu-magpie/0.2.0";
+export const USER_AGENT = "zhihu-agent-search/0.2.0";
 // 工具单次执行最多 55 秒；这里给重试留出余量。
 export const REQUEST_TIMEOUT = 25_000;
 

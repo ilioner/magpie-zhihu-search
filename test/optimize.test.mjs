@@ -12,7 +12,7 @@ import { ZhihuTools, _internal } from "../index.mjs";
 delete process.env.ZHIHU_ACCESS_SECRET;
 
 const ctx = () => ({ abort: new AbortController().signal });
-const tempDir = () => mkdtemp(join(tmpdir(), "tools-zhihu-opt-"));
+const tempDir = () => mkdtemp(join(tmpdir(), "zhihu-agent-search-opt-"));
 
 const BASE_ITEM = {
   Title: "标题",
@@ -322,7 +322,7 @@ test("debug=true 时把耗时写进 magpie 日志，且不含密钥和搜索词"
     });
     await hooks.tool.hot_list.execute({}, ctx());
     assert.ok(logs.length > 0);
-    assert.equal(logs[0].service, "tools-zhihu");
+    assert.equal(logs[0].service, "zhihu-agent-search");
     assert.match(logs[0].message, /hot_list/);
     for (const entry of logs) {
       assert.ok(!entry.message.includes("test-secret"));

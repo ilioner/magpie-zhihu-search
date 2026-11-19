@@ -2,7 +2,7 @@
 // 任何接入 magpie 的智能体都能调用（MCP 服务器 /mcp/magpie/tools）。
 //
 // 安装：
-//   magpie plugin add ./tools-zhihu
+//   magpie plugin add zhihu-agent-search
 //   magpie plugin login zhihu
 //
 // 只导出插件函数（以及测试用的 _internal）：magpie 会把入口文件导出的
@@ -35,14 +35,14 @@ function createLogger(input, options) {
       const log = input?.client?.app?.log;
       if (typeof log === "function") {
         void Promise.resolve(
-          log({ body: { service: "tools-zhihu", level, message } }),
+          log({ body: { service: "zhihu-agent-search", level, message } }),
         ).catch(() => {});
         return;
       }
     } catch {
       // magpie 的日志接口不可用时退回 stderr（magpie 会收进自己的日志）。
     }
-    console.error(`[tools-zhihu] ${message}`);
+    console.error(`[zhihu-agent-search] ${message}`);
   };
 }
 
